@@ -1,0 +1,31 @@
+# Enable PHP processing
+<IfModule mod_php.c>
+    php_flag display_errors off
+    php_value error_reporting E_ALL
+</IfModule>
+
+# Ensure the API directory can execute PHP files
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Allow CORS
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type"
+    
+    # Handle OPTIONS preflight requests
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule ^(.*)$ $1 [R=200,L]
+</IfModule>
+
+# Prevent viewing of .htaccess file
+<Files .htaccess>
+    Order deny,allow
+    Deny from all
+</Files>
+
+# Prevent direct access to .php files in the project except through API endpoints
+<FilesMatch "^(?!(api/|index\.php)).*\.php$">
+    Order deny,allow
+    Deny from all
+</FilesMatch> 
