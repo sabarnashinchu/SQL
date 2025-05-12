@@ -2,7 +2,7 @@
 
 A modern calculator web application with a beautiful UI and SQLite database backend to store calculation history.
 
-![Calculator Screenshot](https://via.placeholder.com/800x450.png?text=Calculator+with+History)
+![Calculator Screenshot: ](![Image](https://github.com/user-attachments/assets/0180e7d5-4bcc-4069-9ab2-ed71c38c2192)
 
 ## 🌟 Features
 
